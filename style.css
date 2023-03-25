@@ -180,6 +180,10 @@ button {
 	cursor: pointer;
 }
 
+#musicBut {
+	background-color: wheat;
+	color: rgb(98, 69, 69);;
+}
 
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -207,3 +211,36 @@ textarea:focus {
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
+
+#gitpic {
+	width: 10%;
+	height: 10%;
+}
+
+#like-button {
+	padding: 8px;
+	border-radius: 4px;
+	background-color: wheat;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+  
+  #like-button[liked='true'] {
+	background-color: wheat;
+  }
+  
+  span {
+	margin-left: 10px;
+  }
+  
+  #answer{
+	max-width: 80%;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 20px;
+  }
+  
+  
+  
+  
