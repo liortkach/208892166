@@ -3,17 +3,12 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik+Beastly&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="G5D5w5Qd"></script>
-
-	<script>
-		let answer = window.confirm('Do you want to play some music?')
-		if (answer) {
-			const audio = new Audio('ZvikaPik-EndOfSummer.mp3');
-			audio.play();
-		}
-
-	</script>
+	<audio id="audio" src="ZvikaPik-EndOfSummer.mp3"></audio>
 	<script>
 		const picker = new EmojiMart.EmojiPicker({
 			autoHide: false,
@@ -41,13 +36,16 @@
 			<ul>
 				<li><a href="#about">About Me</a></li>
 				<li><a href="#photos">My Photos</a></li>
-				<li><a href="#photos">My Photos</a></li>
 				<li><a href="#playlist">My Playlist</a></li>
 				<li><a href="#like">Like</a></li>
 				<li><a href="#qrcoder">QR code</a></li>
 				<li><a href="#spa">Q&A</a></li>
 				<li><a href="#contact">Contact Me</a></li>
-				<li class="zvika" style="text-align: right;">צביקה פיק</li>
+				<li class="zvika" style="margin-left: 90px;
+				font-family: 'Rubik Beastly', cursive;
+				font-size: 20px;
+				height: 40px;
+					transform: scale(1.5);">צביקה פיק</li>
 			</ul>
 		</nav>
 	</div>
@@ -57,6 +55,14 @@
 			<br>
 			<br>
 			<br>
+			<button id="musicBut" onclick="playAudio()">Click On Me For Full Experience</button>
+			<audio id="audio" src="ZvikaPik-EndOfSummer.mp3"></audio>
+			<script>
+				function playAudio() {
+					const audio = document.getElementById('audio');
+					audio.play();
+				}
+			</script>
 			<br>
 			<br>
 			<br>
@@ -160,11 +166,51 @@
 		<br />
 		<br />
 		<br />
-		<div class="fb-like" data-href="https://www.facebook.com/my-page" data-layout="standard" data-action="like"
-			data-size="small" data-share="true"></div>
+		<script>
 
-		<!-- Facebook SDK for JavaScript -->
-		<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="G5D5w5Qd"></script>
+			let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
+			let isLiked = localStorage.getItem('isLiked') === 'true';
+
+			function updateLike() {
+				let likeButton = document.getElementById('like-button');
+				if (isLiked) {
+					document.getElementById('like-count').textContent = likeCount;
+					document.getElementById('like-text').textContent = 'You liked this page';
+					likeButton.textContent = 'Liked';
+					likeButton.setAttribute('liked', 'true');
+				} else {
+					document.getElementById('like-count').textContent = likeCount;
+					document.getElementById('like-text').textContent = 'people liked this page';
+					likeButton.textContent = 'Like';
+					likeButton.removeAttribute('liked');
+				}
+			}
+
+			function toggleLike() {
+				let likeButton = document.getElementById('like-button');
+				if (isLiked) {
+					likeCount--;
+					isLiked = false;
+				} else {
+					likeCount++;
+					isLiked = true;
+				}
+				localStorage.setItem('likeCount', likeCount);
+				localStorage.setItem('isLiked', isLiked);
+				updateLike();
+			}
+
+			if (isLiked) {
+				toggleLike();
+			}
+
+		</script>
+
+		<div>
+			<button id="like-button" onclick="toggleLike()">Like</button>
+			<span id="like-count">0</span>
+			<span id="like-text">people liked this page</span>
+		</div>
 
 		<br />
 		<br />
@@ -175,29 +221,43 @@
 		<br />
 		<h1>scan my code</h1>
 		<br />
-		<br />
-		<br />
+		<img id="gitpic" src="githubio.png">
 	</section>
 
 	<section id="spa" class="section">
 		<br />
 		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
 		<h1>Answers</h1>
 		<br />
+		<p id="answer" dir="rtl" style="font-family: Arial; unicode-bidi: embed;">
+
+			שלושה הבדלים עיקריים בין web1.0 web2.0 web3.0:
+			<br>1)
+			<br>1. מבחינת חווית משתמש:
+			Web1 עוצב בעיקר לקריאה ועיון במסמכים, web2 הציג גם תוכן שנוצר על ידי המשתמשים עצמם ויישומי אינטרנט אחרים וweb3 כבר
+			למד מה המשתמשים יותר אהבו וככה בעצם ייעל את התצוגה.
+			<br>2. תשתית טכנולוגית:
+			Web1 התבסס על דפי HTML סטטיים, web2 כבר הציג יישומים שהינם דינמיים וweb3 משתמש כבר בבינה מלאכותית על מנת לשפר את
+			החוויה
+			<br>3. מודל עסקי:
+			Web1 הונע בעיקר על ידי הכנסות מפרסום ועסקאות של מסחר אלקטרוני, web2 כבר כלל גם מנויים וכלכלה משותפת, web3 כבר
+			השתמש גם בblockchain והשתמש במודלים עסקיים מבוזרים.
+			<br>2)
+			<br> לדוגמה חיפוש תשובה לשאלה:
+			<br>חווית המשתמש תשתנה בין הדפדפנים בצורה הבאה:
+			בנושא החוויה, מתמשים בweb1 יחפשו את המסמכים הרלוונטים דרך הפורטלים ויצטרכו להכינס ולקרוא אחד אחד עד שימצאו/יסתפקו
+			בתשובה הרצויה. בweb2 בעצם ניתן להשתמש במנוע חיפוש ולחפש בצורה הרבה יותר נוחה את התשובה כאשר ניתן למצוא פורומים
+			ואנשים שגם חיפשו/שאלו את אותה השאלה. בweb3 קיימים גם כלים אשר ימקדו בצורה חכמה בעזרת בינה מלכאתית את החיפושים שלנו
+			על מנת להקל עלינו למצוא את התשובה שאנחנו מחפשים.
+			<br>תשתית טכנולוגית:
+			בweb1 בעצם נצטרך להיכנס לדפורטל ולדפדפף בין הדפים ולחפש בצורה שהיא לא נוחה מסמכים רלוונטים לשאלה שאנחנו מחפשים.
+			בweb2 אנו נוכל להתשמש באתרים דינאמיים המשתנים ומתגובות של משתמשים וכך אולי גם להשיג תשוובת יותר חדשות ורלוונטיות.
+			בweb3 אנו נוכל להשתמש ישירות בכלים חכמים ואפליקציות ללא חיפוש בעצמנו ולתת לכלים האלו לתת לנו את התשובה.
+			<br>מודל עסקי:
+			מבחינת web1, בעצם ההכנסות מהחיפושים שלנו ילכו רק לאתרים אשר אנחנו מבקרים בהם והם נותנים לנו מענה על השאלות. בweb2
+			אולי אנחנו נשלם לאתרים או פורומים מסויימים שאנשים כותבים בהם על מנת לקבל תשובה איכותית ומהירה. בweb3 אנחנו נשלם
+			אולי מנוי לאפליקציה שתדע לענות לנו על התשובה שהיא עצמה מבוזרת על פני הרבה שרתים ובמודל עסקי שהינו מבוזר
+		</p>
 		<br />
 		<br />
 	</section>
@@ -207,7 +267,6 @@
 		<br />
 		<br />
 		<h1>Contact Me</h1>
-		<br />
 		<form action="mailto:maestro@svikapick.com" method="post" enctype="text/plain">
 			<label for="name">Name:</label>
 			<input type="text" id="name" name="name" required>

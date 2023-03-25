@@ -31,16 +31,6 @@ h1 {
 	font-size: 20px;
 }
 
-.menu:hover {
-	background-color: blue;
-	color: blue;
-}
-
-.menu a:active {
-	background-color: blue;
-	color: blue;
-}
-
 section {
 	background-color: rgb(98, 69, 69);
 	padding: 0px;
@@ -59,11 +49,14 @@ nav ul {
 	margin: 0;
 	padding: 0;
 	max-width: 100%;
+	list-style: none;
+    justify-content: flex-start;
 }
 
 nav li {
 	margin-right: 20px;
 	flex-grow: 1;
+	display: inline-block;
 }
 
 nav a {
@@ -169,6 +162,22 @@ button[type="submit"]:hover {
 	background-color: #0069d9;
 }
 
+button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	position: relative;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#musicBut {
+	background-color: wheat;
+	color: rgb(98, 69, 69);;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
@@ -195,3 +204,36 @@ textarea:focus {
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
+
+#gitpic {
+	width: 10%;
+	height: 10%;
+}
+
+#like-button {
+	padding: 8px;
+	border-radius: 4px;
+	background-color: wheat;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+  
+  #like-button[liked='true'] {
+	background-color: wheat;
+  }
+  
+  span {
+	margin-left: 10px;
+  }
+  
+  #answer{
+	max-width: 80%;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 20px;
+  }
+  
+  
+  
+  
