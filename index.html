@@ -5,11 +5,10 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="G5D5w5Qd"></script>
-
 	<script>
 		let answer = window.confirm('Do you want to play some music?')
 		if (answer) {
-			const audio = new Audio('ZvikaPik-EndOfSummer.mp3');
+			const audio = document.getElementById('audio');
 			audio.play();
 		}
 
@@ -40,7 +39,6 @@
 		<nav>
 			<ul>
 				<li><a href="#about">About Me</a></li>
-				<li><a href="#photos">My Photos</a></li>
 				<li><a href="#photos">My Photos</a></li>
 				<li><a href="#playlist">My Playlist</a></li>
 				<li><a href="#like">Like</a></li>
